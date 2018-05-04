@@ -4,9 +4,11 @@ import java.io.InputStreamReader;
 import java.net.*;
 
 public class SerSocket {
-	public static void main (String[] args) throws Exception {// this throwsexception
-		
+	public static void main (String[] args)  {
+		try { // trying to happen something wrong
+			
 		System.out.println("Connecting...");
+		
 		// ServerSocket is important to make  socket to established connections
 		ServerSocket ss1 = new ServerSocket(9999);// creating
 		// end of ServerSocket
@@ -16,8 +18,10 @@ public class SerSocket {
 		
 		Socket s = ss1.accept();
 		// this is important too
+		
 		System.out.println("Client is now Online!");
 		// BufferedReader is important read and write Bytes into String formats
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		// creating var as br and passing as a new param new InputStreamReader();
 		
@@ -26,6 +30,11 @@ public class SerSocket {
 		
 System.out.printf("%s", str);
 // Displaying message to the  output stream
+		}catch(Exception e) { // catching exception or wrong in code
+			// printing message if any thing goes wrong
+			
+			System.out.println("Something is not right on Server Socket...");
+		}
 
 	}
 	
